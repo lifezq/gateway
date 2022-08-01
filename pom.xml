@@ -18,6 +18,9 @@
         <spring-cloud.version>2021.0.3</spring-cloud.version>
         <testcontainers.version>1.17.3</testcontainers.version>
         <mybatisplus.version>3.5.2</mybatisplus.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <fastjson.version>2.0.10</fastjson.version>
+        <nacos-config.version>0.2.12</nacos-config.version>
     </properties>
     <dependencies>
         <dependency>
@@ -75,6 +78,31 @@
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- apache commons-lang3-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <!-- import json编解码-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>${nacos-config.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
         </dependency>
     </dependencies>
 

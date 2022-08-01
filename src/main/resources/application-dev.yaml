@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  netty:
+    connection-timeout: 60000
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/gateway?useSSL=FALSE&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    # springboot2.0后默认数据库连接池 HikariCP
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 100
+  #spring cloud gateway
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: demo-server
+          uri: http://localhost:8081
+          predicates:
+            - Path=/demo-server/**
+          filters:
+            - StripPrefix=1
+  redis:
+    host: 172.16.106.92
+    port: 6379
+    password:
+    database: 0
+
+# nacos
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
