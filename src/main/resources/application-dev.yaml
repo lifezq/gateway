@@ -28,7 +28,7 @@ spring:
           filters:
             - StripPrefix=1
   redis:
-    host: 172.16.106.92
+    host: 192.168.124.20
     port: 6379
     password:
     database: 0

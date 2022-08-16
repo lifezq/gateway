@@ -8,9 +8,7 @@ import org.springframework.core.Ordered;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpCookie;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -31,6 +29,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        /*
         // 1.获取请求对象
         ServerHttpRequest request = exchange.getRequest();
         // 2.获取token
@@ -55,6 +54,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         // 延长缓存过期时间-token缓存用户如果一直在操作就会一直重置过期
         // 这样避免用户操作过程中突然过期影响业务操作及体验，只有用户操作间隔时间大于缓存过期时间才会过期
         resetTokenExpirationTime(token, userId);
+         */
         // 完成验证
         return chain.filter(exchange);
     }
